@@ -45,12 +45,6 @@ vendor/lib64/com.qualcomm.qti.ant@1.0.so
 vendor/lib64/hw/vendor.qti.hardware.bluetooth_sar@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so
 
-# Camera - MotCamera2
-product/etc/permissions/privapp-permissions-com.motorola.camera2.xml
-system/app/MotoSignatureApp/MotoSignatureApp.apk;PRESIGNED
-system/etc/permissions/com.motorola.motosignature.xml:vendor/etc/permissions/com.motorola.motosignature.xml
-system/framework/com.motorola.motosignature.jar:vendor/framework/com.motorola.motosignature.jar
-
 # CNE - from lake-tmo QPWS30.142-Q3-28-25-13
 vendor/lib/libxml.so|34dd76abe1fa95065e80e945d13213f4256fbc81
 vendor/lib64/libxml.so|3d6ddc759b5804b2279f66471c9879636a70d801
@@ -137,17 +131,8 @@ vendor/lib64/libscvePanorama_lite.so;DISABLE_CHECKELF
 vendor/lib64/vendor.qti.hardware.scve.objecttracker@1.0.so;MODULE_SUFFIX=_vendor
 vendor/lib64/vendor.qti.hardware.scve.panorama@1.0.so;MODULE_SUFFIX=_vendor
 
-# FM
-product/lib/vendor.qti.hardware.fm@1.0.so:system_ext/lib/vendor.qti.hardware.fm@1.0.so
+# FM interface library: libbt-hidlclient (Bluetooth) links it. The FM radio itself is removed.
 product/lib64/vendor.qti.hardware.fm@1.0.so:system_ext/lib64/vendor.qti.hardware.fm@1.0.so
-system/lib/fm_helium.so:system_ext/lib/fm_helium.so
-system/lib/libfm-hci.so:system_ext/lib/libfm-hci.so
-system/lib64/fm_helium.so:system_ext/lib64/fm_helium.so
-system/lib64/libfm-hci.so:system_ext/lib64/libfm-hci.so
-vendor/bin/fm_qsoc_patches
-vendor/lib/hw/vendor.qti.hardware.fm@1.0-impl.so
-vendor/lib/vendor.qti.hardware.fm@1.0.so;MODULE_SUFFIX=_vendor
-vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.fm@1.0.so;MODULE_SUFFIX=_vendor
 
 # Gatekeeper
@@ -395,8 +380,6 @@ vendor/lib64/libqmi_common_so.so
 vendor/lib64/libqmi_csi.so
 vendor/lib64/libqmi_encdec.so
 
-# Modem support (no telephony): the modem reads its storage through
-# rmt_storage and tftp_server at boot, and GPS, Bluetooth and QMI link the
 # libraries below.
 vendor/bin/rmt_storage
 vendor/bin/tftp_server

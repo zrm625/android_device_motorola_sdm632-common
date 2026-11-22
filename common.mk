@@ -100,9 +100,6 @@ PRODUCT_PACKAGES += \
 # Dalvik
 $(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
 
-# Dex-pre-opt exclusions
-$(call add-product-dex-preopt-module-config,MotoSignatureApp,disable)
-
 # Display
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl:64 \
@@ -118,14 +115,6 @@ $(call soong_config_set,qtidisplay,display_config_variable_info_has_pixel_format
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey
-
-# FM
-PRODUCT_PACKAGES += \
-    FMRadio \
-    libfmjni
-
-$(call soong_config_set_bool,libfmjni,no_fm_firmware,true)
-$(call soong_config_set,libfmjni,vendor,qcom)
 
 # GMS
 ifeq ($(WITH_GMS),true)
