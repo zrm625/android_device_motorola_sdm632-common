@@ -179,9 +179,6 @@ TARGET_PRODUCT_PROP += $(PLATFORM_PATH)/product.prop
 TARGET_SYSTEM_PROP += $(PLATFORM_PATH)/system.prop
 TARGET_VENDOR_PROP += $(PLATFORM_PATH)/vendor.prop
 
-# RIL
-ENABLE_VENDOR_RIL_SERVICE := true
-
 # Recovery
 TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/rootdir/etc/fstab.qcom
 
