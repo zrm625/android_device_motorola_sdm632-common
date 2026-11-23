@@ -373,4 +373,14 @@
         <item>com.google.android.gms/com.google.android.gms.nearby.messages.service.NearbyMessagesService</item>
         <item>com.google.android.gms/com.google.android.gms.nearby.discovery.service.DiscoveryService</item>
     </string-array>
+
+    <!-- GNSS: always use standalone positioning, never MS-based SUPL.
+         The build has no telephony stack, so the modem cannot run a SUPL
+         session. In MS-based mode with a SUPL server set it never starts its
+         GNSS engine: no satellite status at all. Standalone mode still uses
+         the XTRA assistance data that xtra-daemon downloads over Wi-Fi when
+         "Use assisted GPS" is on. These values override carrier config. -->
+    <string-array name="config_gnssParameters" translatable="false">
+        <item>SUPL_MODE=0</item>
+    </string-array>
 </resources>
