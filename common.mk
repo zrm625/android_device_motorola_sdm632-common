@@ -105,6 +105,14 @@ PRODUCT_PACKAGES += \
 # Dalvik
 $(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
 
+# Keep less free space in every Java heap than the 4 GB defaults (8m/16m at
+# 0.6): every running Java process holds that headroom. These are the
+# Go-device values.
+PRODUCT_VENDOR_PROPERTIES += \
+    dalvik.vm.heaptargetutilization=0.75 \
+    dalvik.vm.heapminfree=512k \
+    dalvik.vm.heapmaxfree=8m
+
 # Display
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl:64 \
