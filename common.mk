@@ -82,11 +82,16 @@ PRODUCT_PACKAGES += \
 
 $(call soong_config_set,QTI_GPT_UTILS,USE_BSG_FRAMEWORK,false)
 
-# Camera
+# Camera. The lazy provider starts when cameraserver needs a camera and
+# exits when no client holds it (ro.camera.enableLazyHal), instead of
+# keeping the camera HAL (about 42 MB) loaded all the time.
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl:32 \
-    android.hardware.camera.provider@2.4-service \
+    android.hardware.camera.provider@2.4-service-lazy \
     vendor.qti.hardware.camera.device@1.0:64
+
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.camera.enableLazyHal=true
 
 # Cgroup and task_profiles
 PRODUCT_COPY_FILES += \
