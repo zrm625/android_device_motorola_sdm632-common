@@ -117,10 +117,6 @@ PRODUCT_PACKAGES += \
 
 $(call soong_config_set,qtidisplay,display_config_variable_info_has_pixel_formats,true)
 
-# DRM
-PRODUCT_PACKAGES += \
-    android.hardware.drm-service.clearkey
-
 # GMS
 ifeq ($(WITH_GMS),true)
 GMS_MAKEFILE=gms_minimal.mk
