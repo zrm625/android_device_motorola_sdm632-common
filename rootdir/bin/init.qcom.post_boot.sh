@@ -373,7 +373,9 @@ function configure_zram_parameters() {
     zRamSizeBytes=`echo "$RamSizeGB * 1024 * 1024 * 1024 / 2" | bc`
     zRamSizeMB=`echo "$RamSizeGB * 1024 / 2" | bc`
     # use MB avoid 32 bit overflow
-    if [ $zRamSizeMB -gt 4096 ]; then
+    if [ "$ProductName" = "lineage_river" ]; then
+        zRamSizeBytes=1073741824
+    elif [ $zRamSizeMB -gt 4096 ]; then
         zRamSizeBytes=4294967296
     fi
 
