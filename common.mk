@@ -300,8 +300,8 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/motorola
 
-# Speed Profiles
-PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
+# Verify system server dex files during the build.
+PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := verify
 
 # Thermal
 PRODUCT_PACKAGES += \
